@@ -13,7 +13,7 @@ print("Conexão como o banco de dados feita com sucesso! \n")
 
 
 # funcao inserir
-def cadastrar ( nome, preco, id) :
+def cadastrar (nome, preco, id) :
        comando_sql = f"insert into produtos (nome, preco, id) value ('{nome}', {preco},{id})"
 
        cursor.execute(comando_sql)
@@ -47,4 +47,11 @@ def deletarProduto(id):
    comando_sql = f'DELETE FROM produtos WHERE id = {id}'
    cursor.execute(comando_sql)
    conexao.commit()
+   
+def ProcurarProduto(id):
+    comando_sql = f'SELECT * FROM loja.produtos WHERE id = {id}'
+    cursor.execute(comando_sql)
+    conexao.commit()
+
+
 

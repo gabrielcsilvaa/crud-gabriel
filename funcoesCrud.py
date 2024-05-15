@@ -59,4 +59,10 @@ def deletarProduto(id: str):
     cursor.execute(comando_sql)
     conexao.commit()
 
-
+def ProcurarProduto(id: str):
+    conexao, cursor = conectarBd()
+    comando_sql = f'SELECT * FROM loja.produtos WHERE id = "{id}"'
+    cursor.execute(comando_sql)
+    resultado = cursor.fetchall()  # ou cursor.fetchone() se desejar apenas um resultado
+    conexao.close()  # Fechar a conexão após a consulta
+    return resultado

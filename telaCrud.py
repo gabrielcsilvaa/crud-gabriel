@@ -68,26 +68,23 @@ with containerListar:
     tabelaProdutos = pd.DataFrame(listarProdutos, columns=('id','nomes', 'preço'))
     st.write(tabelaProdutos)
 
-from funcoesCrud import  cadastrar
+st.title('Pesquise seus produtos')
+col3 = st.columns(1)
+containerProcurar = st.container(border=True)
 
+with containerProcurar:
+    containerProcurar.markdown('## BUSCAR UM PRODUTO')
+    id = containerProcurar.text_input('ID DO PRODUTO')
+    btnpesquisar = containerProcurar.button('Pesquisar') 
 
-
-st.title('Loja do Gabriel')
-st.markdown('## Cadastro de Produtos')
-
-nome = st.text_input('Nome do produto', placeholder='Nome do produto com no máximo 50 caracteres')
-
-imagem = st.text_input('Imagem do produto', placeholder='Url da imagem do produto com até 100 caracteres')
-
-codigo = st.text_input('Código do produto', placeholder='Código do produto')
-
-preco = float(st.number_input('Preço produto'))
-
-btnCadastrarProduto = st.button('Cadastrar Produto')
-
-if btnCadastrarProduto:
-    cadastrar(nome, preco, codigo, imagem)
-    st.write('Produto cadastrado com sucesso')
-
-
-
+if btnpesquisar:
+    produto = ProcurarProduto(id)
+    if produto:
+        subcol1 = containerProcurar.container()
+        subcol1.write(f'nome: {produto[0][1]}')  # Acessa o segundo elemento da tupla dentro da lista
+        subcol1.write('image:')
+        try: 
+            print (produto[0][3])
+            st.image(f'{produto[0][3]}', width=200)  # Você pode querer acessar o link da imagem também
+        except:
+            subcol1.write('null')

@@ -1,6 +1,6 @@
 # CRUD MYSQL 
 
-Esse projeto foi construído ao final do módulo de Python do curso de Desenvolvimento Full Stack Python da Youth Space. Com o objetivo de expolorar os conceitos apendidos sobre Python, linguagem SQL (Banco de dados MySQL) e interfaces gráficas (Stream lit).
+Esse projeto foi construído com o objetivo de expolorar os conceitos apendidos sobre Python, linguagem SQL (Banco de dados MySQL) e interfaces gráficas (Stream lit).
 
 
 ##  Como utilizar o projeto:
