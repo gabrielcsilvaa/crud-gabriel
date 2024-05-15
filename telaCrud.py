@@ -3,6 +3,7 @@ from funcoesCrud import *
 import pandas as pd
 
 st.title('Loja Do Gabriel')
+st.write('teste Crud para meu portfolio')
 
 col1, col2 = st.columns(2)
 containercadastrar = col1.container(border=True)
