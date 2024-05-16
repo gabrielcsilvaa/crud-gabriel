@@ -3,7 +3,6 @@ from funcoesCrud import *
 import pandas as pd
 
 st.title('Loja Do Gabriel')
-st.write('teste Crud para meu portfolio')
 
 col1, col2 = st.columns(2)
 containercadastrar = col1.container(border=True)
@@ -82,10 +81,12 @@ if btnpesquisar:
     produto = ProcurarProduto(id)
     if produto:
         subcol1 = containerProcurar.container()
-        subcol1.write(f'nome: {produto[0][1]}')  # Acessa o segundo elemento da tupla dentro da lista
-        subcol1.write('image:')
+        subcol1.write(f'Nome: {produto[0][1]}')  
+        subcol1.write(f'Preço: {produto[0][2]}')
+        subcol1.write('Imagem:')
         try: 
-            print (produto[0][3])
-            st.image(f'{produto[0][3]}', width=200)  # Você pode querer acessar o link da imagem também
-        except:
-            subcol1.write('null')
+            st.image(f"{produto[0][3]}", width=200)  
+        except Exception as e:
+            subcol1.write(f'Erro ao carregar imagem: {str(e)}')
+
+            
