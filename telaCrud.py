@@ -85,7 +85,7 @@ if btnpesquisar:
         subcol1.write(f'Preço: {produto[0][2]}')
         subcol1.write('Imagem:')
         try: 
-            st.image(f"{produto[0][3]}", width=200)  
+            st.image(f"{produto[0][3]}", width=300)  
         except Exception as e:
             subcol1.write(f'Erro ao carregar imagem: {str(e)}')
 
